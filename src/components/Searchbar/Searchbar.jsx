@@ -8,9 +8,9 @@ import {
 } from './Searchbar.styled';
 
 export default function Searchbar({ onSelectCategory }) {
-  const onSubmit = event => {
+ const onSubmit = event => {
     event.preventDefault();
-    onSelectCategory(event.target.elements.search.value);
+    onSelectCategory(event.target.elements.search.value.trim());
   };
   
   return (

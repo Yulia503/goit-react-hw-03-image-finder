@@ -30,7 +30,7 @@ export default class App extends Component {
     }
   }
   onSelectCategory = category => {
-    this.setState({ searchTerm: category, page: 1 });
+    this.setState({ searchTerm: category, page: 1,  galleryList: [],  });
   };
 
   onLoadMore = () => {
@@ -49,11 +49,8 @@ export default class App extends Component {
         this.state.searchTerm,
         this.state.page
       );
-      this.setState(prevState => ({
-        galleryList:
-          this.state.page === 1
-            ? galleryList.hits
-            : [...prevState.galleryList, ...galleryList.hits],
+  this.setState(prevState => ({
+        galleryList: [...prevState.galleryList, ...galleryList.hits],
         totalHits: galleryList.totalHits,
       }));
     } catch (error) {
