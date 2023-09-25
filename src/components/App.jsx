@@ -29,9 +29,11 @@ export default class App extends Component {
       this.scrollToBottom();
     }
   }
-  onSelectCategory = category => {
+  
+ onSelectCategory = category => {
+    if(!category) return
     this.setState({ searchTerm: category, page: 1,  galleryList: [],  });
-  };
+  }; 
 
   onLoadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }));
